@@ -1,0 +1,30 @@
+---
+title: "QT Comparisons"
+author: "Luke Fostvedt"
+date: "Today"
+output: 
+    word_document:
+      fig_width: 5
+      fig_height: 5
+      fig_caption: true
+---
+
+This is an R Markdown document. This document will compare several different approached for modeling QT prolongation using simulated data. The models will be 
+
+
+1. one
+2. two
+3. three
+
+
+```{r}
+summary(cars)
+```
+
+You can also embed plots, for example:
+
+```{r, echo=FALSE}
+plot(cars)
+```
+
+Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.
