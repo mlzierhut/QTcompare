@@ -9,6 +9,7 @@ output:
       fig_caption: true
 ---
 
+### Introduction 
 This is an R Markdown document. This document will compare several different approached for modeling QT prolongation using simulated data. For all the models, the corrected QT interval (QTc) will be the resposne variable. This is calculated using the raw QT and RR intervals
 $$
 QTc = \frac{QT}{RR^\alpha}
@@ -30,17 +31,28 @@ Since the QTc value is unknown, it will be estimated by the intercept term in th
 
 This paper will evaluate three different scenarios, all of which assume there is a QTc prolongation effect from the drug concentration.
 
-1. No RR-concentration effect
-2. An RR-concentration effect with a fixed correction factor
-3. An RR concentration effect where the correction factor is affected by the concentration
+> 1. No RR-concentration effect
+> 2. An RR-concentration effect with a fixed correction factor
+> 3. An RR concentration effect where the correction factor is affected by the concentration
 
+### No RR-Concentration Effect
 
+In the case that the drug concentration does not affect the RR interval, then we can use the standard single correction factor to standardize the QT interval measurements for the heart rate effect -- A smaller RR interval results in a smaller QT interval -- to QT corrected values.
+
+### RR-concentration effect with fixed correction factor
 
 $$
 QTc = \frac{QT}{(RR+\beta*conc)^\alpha}
 $$
 
-This model still assumes there is a single fixed correction factor that will work regardless of the concentration effect on the RR interval. Since the RR interval is being affected by the drug concentration, it is also possible that the correction factor is also being affected by the concentration. 
+This model still assumes there is a single fixed correction factor that will work regardless of the concentration effect on the RR interval. 
+
+### An RR concentration effect where the correction factor is affected by the concentration
+
+
+Since the RR interval is being affected by the drug concentration, it is also possible that the correction factor is also being affected by the concentration. 
+
+
 
 $$
 \begin{eqnarray}
@@ -50,18 +62,3 @@ $$
 $$
 
 is there some typing that must happen?
-
-typing some more
-
-
-```{r}
-summary(cars)
-```
-
-You can also embed plots, for example:
-
-```{r, echo=FALSE}
-plot(cars)
-```
-
-Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.
