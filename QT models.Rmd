@@ -15,7 +15,7 @@ $$
 QTc = \frac{QT}{RR^\alpha}
 $$
 where $\alpha$ is the correction factor. Some standard correction factors are
-fredericia correction is 0.33 whi (usually between .33 and .5).
+fredericia correction is 0.33 (usually between .33 and .5).
 
 > 1. Fredericia: $\alpha=1/3$
 > 2. Bazett: $\alpha=1/2$
@@ -37,14 +37,25 @@ This paper will evaluate three different scenarios, all of which assume there is
 
 ### No RR-Concentration Effect
 
-In the case that the drug concentration does not affect the RR interval, then we can use the standard single correction factor to standardize the QT interval measurements for the heart rate effect -- A smaller RR interval results in a smaller QT interval -- to QT corrected values.
+In the case that the drug concentration does not affect the RR interval, then we can use the standard single correction factor to standardize the QT interval measurements for the heart rate effect -- A smaller RR interval results in a smaller QT interval -- to QT corrected values. Assuming there are no covariate effects on the corrected QT interval, the following linear mixed-effects model can be used to model the QTc-concentration relationship.
+
+$$
+QTc = (\beta_0 +\eta_{1i}) + (\beta_1 + \eta_{2i}) * conc + \epsilon_{ij} 
+$$
+
+$\beta_0$ represents the overall mean QTc interval length at baseline. $\beta_1$ represents the change in the QTc interval caused by the drug concentrations. $\eta_{1i}$ and $\eta_{2i}$ are random effects that are distributed multivariate normal with mean 0 and variance $\Sigma$. 
+
+
+
+
+
+
 
 ### RR-concentration effect with fixed correction factor
 
 $$
 \begin{eqnarray}
-QTc & = & \frac{QT}{(RR+\gamma*conc)^\alpha}\\
-QTc & = & 
+QTc & = & \frac{QT}{(RR+\gamma*conc)^\alpha}
 \end{eqnarray}
 $$
 
@@ -52,10 +63,7 @@ This model still assumes there is a single fixed correction factor that will wor
 
 ### An RR concentration effect where the correction factor is affected by the concentration
 
-
 Since the RR interval is being affected by the drug concentration, it is also possible that the correction factor is also being affected by the concentration. 
-
-
 
 $$
 \begin{eqnarray}
@@ -64,4 +72,4 @@ $$
 \end{eqnarray}
 $$
 
-is there some typing that must happen?
+#### 
