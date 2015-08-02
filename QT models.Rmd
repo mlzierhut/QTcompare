@@ -42,7 +42,10 @@ In the case that the drug concentration does not affect the RR interval, then we
 ### RR-concentration effect with fixed correction factor
 
 $$
-QTc = \frac{QT}{(RR+\beta*conc)^\alpha}
+\begin{eqnarray}
+QTc & = & \frac{QT}{(RR+\gamma*conc)^\alpha}\\
+QTc & = & 
+\end{eqnarray}
 $$
 
 This model still assumes there is a single fixed correction factor that will work regardless of the concentration effect on the RR interval. 
